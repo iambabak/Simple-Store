@@ -3,20 +3,17 @@ import createConfig from "../api/createConfig";
 import Link from "next/link";
 import FavoritProducts from '../components/FavatioyProducts'
 import Layout from '../components/Layout'
-// import Styles from '../header.css'
-// const styles = theme => ({
-//   root: {
-//     textAlign: 'center',
-//     paddingTop: theme.spacing.unit * 20,
-//   },
-// });
+import Router from 'next/router'
+
+
 const Index = props => (
   <Layout>
     <p style={{color:'red'}}>Simple Store</p>
-    {/* <style dangerouslySetInnerHTML={{__html: Styles}}/> */}
-
     <div>
       <FavoritProducts favoritProducts = {props.shows}/>
+      <button onClick={()=> Router.push('/search/ساعت')}>saat</button>
+      {/* <button onClick={()=>Router.push('/shelves/category/digital/products/?price_max=300000')}>filter price</button> */}
+
      <ul>
       {props.shows.data.products.map(( product ) => (
         <li key={product.address}>
@@ -30,17 +27,8 @@ const Index = props => (
   </Layout>
 );
 Index.getInitialProps = async function() {
-  console.log('asdf')
-  const slug = "food"
-  let category_address = "digital"
   let response = await fetch(
-    // `http://api.projectant.aasoo.ir/stores/store/sib/`,
-    `http://api.projectant.aasoo.ir/shelves/products/`,
-    // `http://api.projectant.aasoo.ir/shelves/categories/list/`,
-    // `http://api.projectant.aasoo.ir/shelves/category/address/${category_address}/products/`,
-    // `http://api.projectant.aasoo.ir/shelves/categories/category/${slug}/`,
-    // `http://api.projectant.aasoo.ir/auth/current-user/`,
-    // `http://api.projectant.aasoo.ir/shelves/products/?search=`,
+    `http://api.projectant.aasoo.ir/shelves/products/`,    
     createConfig()
   );
   const data = await response.json();

@@ -1,0 +1,61 @@
+.embed-submit-field {
+  position: relative;
+}
+.edit{
+  position: absolute;
+    left: 10px;
+    top: 7px;
+}
+.inputWithEdit{
+  width: 100%;
+    padding: 15px;
+    border: none;
+}
+.defualtInput{
+  font-size: 20px;
+  width: 40vw;
+  margin: 20px 0px;
+  height: 50px;
+  padding: 30px;
+  /* border-radius: 5px;
+  border-style: solid;
+  border-color: grey; */
+}
+.halftInput{
+  font-size: 20px;
+  width: 19.5vw;
+  margin: 20px 0px 20px 10px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 30px;
+
+}
+.addressInput{
+  font-size: 20px;
+  width: 40vw;
+  margin: 20px 0px;
+  height: 150px;
+  border-radius: 5px;
+  padding: 30px;
+}
+.textLabel{
+  /* font-size: 30px; */
+  font-size: 4vw;
+  font-weight: bold;
+  /* margin:20px; */
+
+}
+.radioInput{
+  display: flex;
+  flex-shrink: 1;
+  border-style: solid;
+   margin-top:10px;
+   padding: 10px;
+   width: 45vw;
+   border-color: grey;
+   border-radius: 5px;
+}
+.radioTextPrice{
+  position:absolute;
+  left:55vw;
+}

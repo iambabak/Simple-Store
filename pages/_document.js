@@ -8,8 +8,34 @@ class MyDocument extends Document {
     const { pageContext } = this.props;
 
     return (
-      <html lang="en" dir="ltr">
+      <html lang="en" dir="rtl">
         <Head>
+        <style jsx global>{`
+      body { 
+        background-color: #fff !important;
+        font: 11px menlo;
+        color: black;
+      }
+      a {
+        text-decoration: none;
+       }
+      a:hover {
+        cursor:pointer;
+        text-decoration: none;
+       }
+       button:hover {
+        cursor:pointer;
+       }
+       .border{
+         border: solid green;  
+       }
+       .floatLeft{
+         float: left
+       }
+       .inlineBlock{
+        display: inline-block !important
+      }
+    `}</style>
           <meta charSet="utf-8" />
           {/* Use minimum-scale=1 to enable GPU rasterization */}
           <meta

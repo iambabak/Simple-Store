@@ -6,9 +6,6 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Link from "next/link";
-// import CardWrapper from './CardWrapper'
-// import Grid from '@material-ui/core/Grid';
-// import { unstable_Box as Box } from '@material-ui/core/Box';
 
 const styles = theme => ({
   root: {

@@ -296,8 +296,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+ // export default withRedux(initStore)(
 
-/* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_8___default()(_reducer_rootReducer__WEBPACK_IMPORTED_MODULE_9__["initStore"])(
+var MyApp =
 /*#__PURE__*/
 function (_App) {
   _inherits(MyApp, _App);
@@ -328,9 +329,9 @@ function (_App) {
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps,
-          store = _this$props.store;
+          reduxStore = _this$props.reduxStore;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_1__["Container"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_10__["Provider"], {
-        store: store
+        store: reduxStore
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", null, "My page")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_jss_lib_JssProvider__WEBPACK_IMPORTED_MODULE_5___default.a, {
         registry: this.pageContext.sheetsRegistry,
         generateClassName: this.pageContext.generateClassName
@@ -344,7 +345,10 @@ function (_App) {
   }]);
 
   return MyApp;
-}(next_app__WEBPACK_IMPORTED_MODULE_1___default.a))); // export default withRedux(reducer)(MyApp);
+}(next_app__WEBPACK_IMPORTED_MODULE_1___default.a); // )
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_lib_with_redux_store__WEBPACK_IMPORTED_MODULE_7__["default"])(MyApp)); // export default withRedux(reducer)(MyApp);
 // export default (MyApp);
 
 /***/ }),
@@ -410,6 +414,66 @@ var authReducer = function authReducer() {
   if (action.type === "AUTH_DATA") {
     return _objectSpread({}, state.auth, {
       token: action.data
+    });
+  } else return state;
+};
+
+/***/ }),
+
+/***/ "./reducer/getCartDataReducer.js":
+/*!***************************************!*\
+  !*** ./reducer/getCartDataReducer.js ***!
+  \***************************************/
+/*! exports provided: getCartDataReducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCartDataReducer", function() { return getCartDataReducer; });
+/* harmony import */ var _store_defaultStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/defaultStore */ "./store/defaultStore.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var getCartDataReducer = function getCartDataReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _store_defaultStore__WEBPACK_IMPORTED_MODULE_0__["default"];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  if (action.type === "GET_CART_DATA") {
+    console.log('action.product', action);
+    return _objectSpread({}, state, {
+      cartDataOrigin: action.data
+    });
+  } else return state;
+};
+
+/***/ }),
+
+/***/ "./reducer/handleLoadingReducer.js":
+/*!*****************************************!*\
+  !*** ./reducer/handleLoadingReducer.js ***!
+  \*****************************************/
+/*! exports provided: handleLoadingReducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "handleLoadingReducer", function() { return handleLoadingReducer; });
+/* harmony import */ var _store_defaultStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/defaultStore */ "./store/defaultStore.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var handleLoadingReducer = function handleLoadingReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _store_defaultStore__WEBPACK_IMPORTED_MODULE_0__["default"];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  if (action.type === "HANDLE_LOADING") {
+    console.log('action.product', !state.loading);
+    return _objectSpread({}, state, {
+      loading: !state.loading
     });
   } else return state;
 };
@@ -488,6 +552,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _addToCreditReducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./addToCreditReducer */ "./reducer/addToCreditReducer.js");
 /* harmony import */ var os__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! os */ "os");
 /* harmony import */ var os__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(os__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _setFilterReducer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./setFilterReducer */ "./reducer/setFilterReducer.js");
+/* harmony import */ var _userDataReducer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./userDataReducer */ "./reducer/userDataReducer.js");
+/* harmony import */ var _getCartDataReducer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./getCartDataReducer */ "./reducer/getCartDataReducer.js");
+/* harmony import */ var _handleLoadingReducer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./handleLoadingReducer */ "./reducer/handleLoadingReducer.js");
+/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! redux-form */ "redux-form");
+/* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(redux_form__WEBPACK_IMPORTED_MODULE_12__);
+
+
+
+
+
 
 
 
@@ -500,7 +575,12 @@ __webpack_require__.r(__webpack_exports__);
 var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   categoriesReducer: _reducer__WEBPACK_IMPORTED_MODULE_4__["categoriesReducer"],
   authReducer: _authReducer__WEBPACK_IMPORTED_MODULE_5__["authReducer"],
-  addToCreditReducer: _addToCreditReducer__WEBPACK_IMPORTED_MODULE_6__["addToCreditReducer"]
+  addToCreditReducer: _addToCreditReducer__WEBPACK_IMPORTED_MODULE_6__["addToCreditReducer"],
+  setFilterReducer: _setFilterReducer__WEBPACK_IMPORTED_MODULE_8__["setFilterReducer"],
+  userDataReducer: _userDataReducer__WEBPACK_IMPORTED_MODULE_9__["userDataReducer"],
+  getCartDataReducer: _getCartDataReducer__WEBPACK_IMPORTED_MODULE_10__["getCartDataReducer"],
+  handleLoadingReducer: _handleLoadingReducer__WEBPACK_IMPORTED_MODULE_11__["handleLoadingReducer"],
+  form: redux_form__WEBPACK_IMPORTED_MODULE_12__["reducer"]
 });
 var initStore = function initStore() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _store_defaultStore__WEBPACK_IMPORTED_MODULE_3__["default"];
@@ -522,6 +602,87 @@ function getAuthToken() {
   // }
 
 }
+
+/***/ }),
+
+/***/ "./reducer/setFilterReducer.js":
+/*!*************************************!*\
+  !*** ./reducer/setFilterReducer.js ***!
+  \*************************************/
+/*! exports provided: setFilterReducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFilterReducer", function() { return setFilterReducer; });
+/* harmony import */ var _store_defaultStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/defaultStore */ "./store/defaultStore.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var setFilterReducer = function setFilterReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _store_defaultStore__WEBPACK_IMPORTED_MODULE_0__["default"];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  if (action.type === "ADD_FILTER") {
+    return _objectSpread({}, state, {
+      data: [].concat(_toConsumableArray(state.data), [{
+        slug: action.slug,
+        choice_slug: action.choice_slug
+      }]) // action.data
+
+    });
+  } else return state;
+};
+
+/***/ }),
+
+/***/ "./reducer/userDataReducer.js":
+/*!************************************!*\
+  !*** ./reducer/userDataReducer.js ***!
+  \************************************/
+/*! exports provided: userDataReducer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userDataReducer", function() { return userDataReducer; });
+/* harmony import */ var _store_defaultStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/defaultStore */ "./store/defaultStore.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var userDataReducer = function userDataReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _store_defaultStore__WEBPACK_IMPORTED_MODULE_0__["default"];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  if (action.type === "GET_USER_DATA") {
+    console.log('action.userData', action.userData);
+    console.log('state console', state.user);
+    console.log('state console', state.address);
+    return _objectSpread({}, state, {
+      user: action.userData,
+      cartData: action.cartData,
+      address: action.address
+    });
+  }
+
+  if (action.type === "CREATE_ORDER") {
+    return _objectSpread({}, state, {
+      orderData: action.orderData
+    });
+  } else return state;
+};
 
 /***/ }),
 
@@ -564,7 +725,8 @@ var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["create
   },
   typography: {
     useNextVariants: true
-  }
+  },
+  direction: 'rtl'
 });
 
 function createPageContext() {
@@ -617,7 +779,12 @@ __webpack_require__.r(__webpack_exports__);
     count: '',
     total_price: ''
   },
-  products: {}
+  products: {},
+  user: {},
+  cartData: {},
+  orderData: {},
+  cartDataOrigin: '',
+  loading: false
 });
 
 /***/ }),
@@ -796,6 +963,17 @@ module.exports = require("redux");
 /***/ (function(module, exports) {
 
 module.exports = require("redux-devtools-extension");
+
+/***/ }),
+
+/***/ "redux-form":
+/*!*****************************!*\
+  !*** external "redux-form" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-form");
 
 /***/ }),
 

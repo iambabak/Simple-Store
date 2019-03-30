@@ -10,7 +10,6 @@ const addToBasket = props => {
     createFormData(obj),
     createConfig()
   );
-  console.log("response", response);
 };
 
 export default addToBasket;

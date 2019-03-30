@@ -21,6 +21,7 @@ const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
   },
+  direction:'rtl'
 });
 
 function createPageContext() {
