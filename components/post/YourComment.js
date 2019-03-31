@@ -9,9 +9,11 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { connect } from "react-redux";
 import {fetchlogInReqIfneeded} from '../../actions/actions'
 import {createFormData} from '../CreateForm'
+import SingleProduct from "./SingleProduct";
+import StarRating from '../general/StarRating'
 
 // export default class LoginDialog extends React.Component {
-  class LoginDialog extends React.Component {
+  class YourComments extends React.Component {
   state = {
     open: false,
     Username: "",
@@ -45,6 +47,7 @@ import {createFormData} from '../CreateForm'
 }
 
   render() {
+      const {product} = this.props;
     return (
       <div>
         
@@ -67,49 +70,23 @@ import {createFormData} from '../CreateForm'
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">ورود به حساب کاربری</DialogTitle>
+          <DialogTitle id="form-dialog-title">نظر شما درباره این محصول</DialogTitle>
           <DialogContent>
-            {/* <DialogContentText>
-              To subscribe to this website, please enter your email address
-              here. We will send updates occasionally.
-            </DialogContentText> */}
-            <input
-              placeholder="Username"
-              ref={input => (this.user = input)}
-              onChange={this.handleUsernameChange}
-              style={{
-                width: "60%",
-                margin: "10px",
-                height: "50px",
-                borderRadius: "10px"
-              }}
-            />
-            <br />
-            <input
-              placeholder="Password"
-              type="password"
-              ref={input => (this.pass = input)}
-              onChange={this.handlePasswordChange}
-              style={{
-                width: "60%",
-                margin: "10px",
-                height: "50px",
-                borderRadius: "10px"
-              }}
-            />
-            {/* <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-            /> */}
+            
+            {console.log('product in your comment',product)}
+            <div style={{display:'flex', flexDirection:'row'}}>
+            <img style={{height:'10vh', width:'10vw'}} src={product.thumbnail}></img>
+            <div>
+                <div>{product.title}</div>
+                <div style={{marginTop:'10px'}}>از 5 ستاره به این محصول چند می دهید؟؟</div>
+            </div>
+            </div>
+            <div style={{display:'flex' ,justifyContent: 'center'}}>
+            <StarRating/>
+            </div>
+            <input style={{width:'30vw', height:'100px'}} placeholder="نظر شما"></input>
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
+          <DialogActions style={{justifyContent:'center'}}>
             <button
               onClick={()=>{this.dispatchLogIn(); this.handleClose()}}
               style={{ position: "inherit", right: "75%" }}
@@ -127,5 +104,5 @@ const mapStateToProps = state => {
     data: state.data
   };
 };
-export default connect(mapStateToProps)(LoginDialog);
+export default connect(mapStateToProps)(YourComments);
 

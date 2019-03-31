@@ -25,7 +25,11 @@ const styles = theme => ({
     overflowX: "auto"
   },
   table: {
-    minWidth: 700
+    maxWidth: 900,
+    border: 'solid black',
+    alignSelf: 'center',
+
+
   },
   row: {
     "&:nth-of-type(odd)": {
@@ -40,7 +44,7 @@ class TableData extends Component {
     const { classes, product } = this.props;
 
     return (
-      <div>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
         <Table className={classes.table}>
           <TableBody>
               {product.data.map(el => (

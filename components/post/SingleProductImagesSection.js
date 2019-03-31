@@ -15,7 +15,7 @@ import ImagesSlinck from "./ImagesSlinck";
 import Slider from "react-slick";
 import '../../node_modules/slick-carousel/slick/slick.css'
 import '../../node_modules/slick-carousel/slick/slick-theme.css'
-
+import SliderArrow from './SliderArrow'
 const styles = theme => ({
   root2: {
     display: "flex",
@@ -66,13 +66,17 @@ class SingleProductImagesSection extends Component {
   render() {
     
     let settings = {
-      arrows: true,
+      // prevArrow: <SliderArrow to="prev" />,
+      prevArrow: <button>111</button>,
+      nextArrow: <SliderArrow to="next" />,
+      // arrows: true,
 
   //   dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    
   };
     const { classes, mainImage, product } = this.props;
 

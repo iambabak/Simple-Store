@@ -35,6 +35,10 @@ class MyDocument extends Document {
        .inlineBlock{
         display: inline-block !important
       }
+      .dv-star-rating{
+        display: flex !important;
+        flex-direction: row-reverse;
+      }
     `}</style>
           <meta charSet="utf-8" />
           {/* Use minimum-scale=1 to enable GPU rasterization */}

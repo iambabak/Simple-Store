@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import {fetchAddToCredit} from '../../actions/actions';
 import { connect } from "react-redux";
+import StarRating from "../general/StarRating";
 
 const styles = theme => ({
   root: {
@@ -72,7 +73,11 @@ class SingleProductData extends Component {
             
           </Grid>
           <Grid item>
-            <Typography variant="subtitle1">$19.00</Typography>
+          {console.log('product for star',product)}
+            {/* <Typography variant="subtitle1">$19.00</Typography> */}
+            {/* <Typography variant="subtitle1"> */}
+            <StarRating rating={product.rate}/>
+            {/* </Typography> */}
           </Grid>
         </Grid>
       </div>
