@@ -9,5 +9,11 @@ export default {
     count:'',
     total_price:''
     },
-    products:{}
+    products:{},
+    user: {},
+    cartData:{},
+    orderData: {},
+    cartDataOrigin:'',
+    loading: false
+
 }

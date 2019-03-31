@@ -7,12 +7,24 @@ import {categoriesReducer} from './reducer'
 import {authReducer} from './authReducer'
 import {addToCreditReducer} from './addToCreditReducer'
 import { type } from 'os';
+import {setFilterReducer} from './setFilterReducer'
+import {userDataReducer} from './userDataReducer'
+import {getCartDataReducer} from './getCartDataReducer'
+import {handleLoadingReducer} from './handleLoadingReducer'
+
+import { reducer as reduxFormReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
     
     categoriesReducer,
     authReducer,
-    addToCreditReducer
+    addToCreditReducer,
+    setFilterReducer,
+    userDataReducer,
+    getCartDataReducer,
+    handleLoadingReducer,
+    form: reduxFormReducer,
+
 })
 
 

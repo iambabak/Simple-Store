@@ -11,7 +11,7 @@ import withRedux from 'next-redux-wrapper'
 import  {initStore}  from '../reducer/rootReducer'
 import { Provider } from 'react-redux'
 
-export default withRedux(initStore)(
+// export default withRedux(initStore)(
 
 class MyApp extends App {
   constructor() {
@@ -28,10 +28,10 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, store } = this.props;
+    const { Component, pageProps, reduxStore } = this.props;
     return (
       <Container>
-        <Provider store={store}>
+        <Provider store={reduxStore}>
         <Head>
           <title>My page</title>
         </Head>
@@ -58,7 +58,8 @@ class MyApp extends App {
     );
   }
 }
-)
+// )
+export default withReduxStore(MyApp)
 
 // export default withRedux(reducer)(MyApp);
 // export default (MyApp);

@@ -21,8 +21,15 @@ server.get('/search/:address', (req, res) => {
 })
 server.get('/category/:address', (req, res) => {
   const actualPage = '/category'
-  const queryParams = { address: req.params.address, priceOrigin: req.params.priceFilter}
+  const queryParams = { address: req.params.address}
   app.render(req, res, actualPage, queryParams)
+})
+server.get('/category/:address', (req, res) => {
+  const actualPage = '/category'
+  console.log('req,res',req,res)
+  // const queryParams = { address: req.params.address, filter:req.params.filter, field_2MHtJcq4KP:req.params.field_2MHtJcq4KP, priceOrigin: req.params.priceFilter}
+  const mergedQuery = Object.assign({}, req.query, req.params)
+  app.render(req, res, actualPage, mergedQuery)
 })
 
   server.get('*', (req, res) => {

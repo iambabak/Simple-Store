@@ -1,0 +1,13 @@
+.categoriesTitle:after {
+    content: "";
+    display: unset;
+    padding-top: 0px;
+    border-left: 0.5px solid grey;
+    border-right: 0.5px solid grey;
+    margin: 0px 6px;
+}
+.categoriesTitle:hover {
+    text-decoration: underline;
+    text-decoration-color: grey; 
+
+}

@@ -1,0 +1,8 @@
+.imgDrawer{
+    width: 128px;
+    height: 128px;
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 100%
+}

@@ -8,18 +8,27 @@ class CartDetail extends Component {
 
     super();
     this.state = {
-      cartProducts:null
+      cartProducts:null,
+      products:{}
     };
   }
   
   async componentDidMount(){
     let response =  await axios.get(`http://api.projectant.aasoo.ir/orders/cart/show/` ,getConfig())
-    console.log('response in did mount',response)
-    let cartData = JSON.parse(localStorage.getItem('cartData')) 
-    console.log('cartData',cartData)
+    response.data.data.cart.cart_products.map(cart_product=>
     this.setState({
-      cartProducts: cartData
-    })
+      products: {
+        
+        ...this.state.products, 
+            [cart_product.product.slug]: {
+                ...this.state.products[cart_product.product.slug], 
+                name: 
+                cart_product.product.address,
+                price:cart_product.product.price
+            }
+        }
+    }))
+    
 
   }
   getCartData(){
@@ -34,12 +43,14 @@ class CartDetail extends Component {
 
     return (
       
-      <div>
-        {console.log('this.state.cartDataInState',this.state.cartDataInState)}
-        
+      <div>        
               <h1>cart</h1>
-        <button onClick={()=>this.getCartData()}>getCartData</button>
-        {/* {this.state.cartProducts? this.state.cartProducts.map(product => <div>slug: {product.slug}</div>):<div>not found</div>} */}
+              {/* {Object.keys(this.state.products).map((product, index) => {
+                <div key={index}>1
+                <div>اسم : {this.state.products[product].name}</div>
+                <div>قیمت : {product.price}</div>
+                </div>
+              })} */}
       </div>
     );
   }
